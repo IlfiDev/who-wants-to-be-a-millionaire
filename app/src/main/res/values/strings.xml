@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">who wants to be a millionaire</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="hello_start">Приветствуем вас в нашей игре</string>
+    <string name="game_name">Кто хочет стать миллионером?</string>
+    <string name="button_continue">Продолжить</string>
+
 </resources>
