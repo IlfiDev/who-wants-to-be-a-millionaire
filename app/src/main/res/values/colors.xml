@@ -12,6 +12,7 @@
     <color name="primary">#60CAD7</color>
     <color name="secondary">#EEA7C0</color>
     <color name="tertiary">#9E85EB</color>
+    <color name="inactive_button">#B8B8B8</color>
 
     <color name="bg">#F9F8FF</color>
 

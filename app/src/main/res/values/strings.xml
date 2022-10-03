@@ -6,5 +6,11 @@
     <string name="hello_start">Приветствуем вас в нашей игре</string>
     <string name="game_name">Кто хочет стать миллионером?</string>
     <string name="button_continue">Продолжить</string>
+    <string name="button_prise">1000р.</string>
+
+    <string name="letter_a">А:</string>
+    <string name="letter_b">Б:</string>
+    <string name="letter_v">В:</string>
+    <string name="letter_g">Г:</string>
 
 </resources>
