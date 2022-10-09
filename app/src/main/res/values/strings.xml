@@ -10,7 +10,12 @@
 
     <string name="letter_a">А:</string>
     <string name="letter_b">Б:</string>
-    <string name="letter_v">В:</string>
-    <string name="letter_g">Г:</string>
+    <string name="letter_c">В:</string>
+    <string name="letter_d">Г:</string>
+
+    <string name="answer_a">Ответ А:</string>
+    <string name="answer_b">Ответ Б:</string>
+    <string name="answer_c">Ответ В:</string>
+    <string name="answer_d">Ответ Г:</string>
 
 </resources>
