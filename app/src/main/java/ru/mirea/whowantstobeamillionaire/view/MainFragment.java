@@ -24,7 +24,7 @@ import ru.mirea.whowantstobeamillionaire.R;
 
 public class MainFragment extends Fragment {
 
-    List<Question> questions = MainActivity.question;
+    List<Question> questions = new QuestionsDataBase().getQuestion();
     Button answerA;
     Button answerB;
     Button answerC;
