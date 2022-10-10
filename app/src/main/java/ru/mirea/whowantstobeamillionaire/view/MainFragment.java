@@ -16,8 +16,6 @@ import android.widget.Toast;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
-import org.junit.Assert;
-import org.junit.Test;
 
 import java.util.List;
 import java.util.Random;
@@ -69,6 +67,7 @@ public class MainFragment extends Fragment {
         Question question = questions.get(index);
         questionText.setText(question.getQuestion());
         List<String> answers = question.getWrongAnswers();
+        answers.add(question.getRightAnswer());
         int randIndex = new Random().nextInt(4);
         answerA.setText(answers.get(randIndex));
         answers.remove(randIndex);
