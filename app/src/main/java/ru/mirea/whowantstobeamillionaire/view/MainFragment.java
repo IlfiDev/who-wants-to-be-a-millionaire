@@ -20,6 +20,9 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import java.util.List;
 import java.util.Random;
 
+
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import ru.mirea.whowantstobeamillionaire.R;
 
 public class MainFragment extends Fragment {
@@ -29,8 +32,10 @@ public class MainFragment extends Fragment {
     TextView questionText;
 
     public NotificationManager notificationManager;
-    private  static final int NOTIFY_ID = 1;
+    private static final int NOTIFY_ID = 1;
     private static final String CHANNEL_ID = "CHANNEL_ID";
+
+    private short question_id;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -63,7 +68,7 @@ public class MainFragment extends Fragment {
 
     }
 
-    void loadQuestion(int index){
+    void loadQuestion(int index) {
         Question question = questions.get(index);
         questionText.setText(question.getQuestion());
         List<String> answers = question.getWrongAnswers();
@@ -107,7 +112,7 @@ public class MainFragment extends Fragment {
             }
         });
 
-        
+
     }
 
     //    @Test
@@ -124,4 +129,8 @@ public class MainFragment extends Fragment {
 //        Assert.assertEquals(isFail, getFail);
 //    }
 
+
+    public boolean answerIsCorrect(String answer) {
+        return false;
+    }
 }

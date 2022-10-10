@@ -24,6 +24,7 @@ public class QuestionsDataBase {
         question.add(new Question("Лучшее пиво по мнению МИРЭАшников?", "Честер", new ArrayList<String>(Arrays.asList("Козёл", "Балтика", "Хамовники Пильзенское")), 1));
 
     }
+    //Хуйня переделывай
     public ArrayList<Question> getQuestion(){
         return question;
     }
