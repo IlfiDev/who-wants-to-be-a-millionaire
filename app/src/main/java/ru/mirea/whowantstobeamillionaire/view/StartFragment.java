@@ -46,7 +46,8 @@ public class StartFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                // Судя по всему, pref по умолчанию true, поэтому ведется обратная проверка
+                // Судя по всему, при отсутствии значения в pref по умолчанию проверка не сработала бы как надо
+                // Поэтому ведется обратная проверка через false
                 if (pref.getBoolean(save_key, false)) {
                     Navigation.findNavController(StartFragment.this.getView()).navigate(R.id.action_startFragment_to_mainFragment);
                 }
