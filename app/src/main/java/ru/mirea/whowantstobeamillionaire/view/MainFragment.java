@@ -25,17 +25,17 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import ru.mirea.whowantstobeamillionaire.R;
 
-public class MainFragment extends Fragment {
+public class MainFragment extends Fragment implements View.OnClickListener{
 
     List<Question> questions = new QuestionsDataBase().getQuestion();
     Button answerA, answerB, answerC, answerD, positive_button, negative_button, answer_a_button;
-    TextView questionText;
+    TextView questionText, questionNum;
 
     public NotificationManager notificationManager;
     private static final int NOTIFY_ID = 1;
     private static final String CHANNEL_ID = "CHANNEL_ID";
 
-    private short question_id;
+    private short question_id = 0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -44,12 +44,16 @@ public class MainFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
 
         questionText = view.findViewById(R.id.question_text);
-
+        questionNum = view.findViewById(R.id.question_number);
         answerA = view.findViewById(R.id.answer_a_button);
+        answerA.setOnClickListener(this);
         answerB = view.findViewById(R.id.answer_b_button);
+        answerB.setOnClickListener(this);
         answerC = view.findViewById(R.id.answer_g_button2);
+        answerC.setOnClickListener(this);
         answerD = view.findViewById(R.id.answer_v_button);
-        loadQuestion(1);
+        answerD.setOnClickListener(this);
+        loadQuestion(question_id);
 
         return view;
     }
@@ -58,13 +62,7 @@ public class MainFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
-        answer_a_button = (Button) getView().findViewById(R.id.answer_a_button);
-        answer_a_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                failDialog();
-            }
-        });
+
 
     }
 
@@ -83,6 +81,32 @@ public class MainFragment extends Fragment {
         answerC.setText(answers.get(randIndex));
         answers.remove(randIndex);
         answerD.setText(answers.get(0));
+        questionNum.setText(String.valueOf(index + 1));
+    }
+    public void onClick(View v) {
+        String chosenAnswer = "";
+        switch(v.getId()){
+
+            case R.id.answer_a_button:
+                chosenAnswer = (String) answerA.getText();
+                break;
+
+            case R.id.answer_b_button:
+                chosenAnswer = (String) answerB.getText();
+                break;
+            case R.id.answer_g_button2:
+                chosenAnswer = (String) answerC.getText();
+                break;
+            case R.id.answer_v_button:
+                chosenAnswer = (String) answerD.getText();
+                break;
+        }
+        if(answerIsCorrect(chosenAnswer)){
+            question_id++;
+            loadQuestion(question_id);
+        }else{
+            failDialog();
+        }
     }
 
     private void failDialog() {
