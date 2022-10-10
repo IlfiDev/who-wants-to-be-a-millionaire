@@ -8,6 +8,12 @@ public class Fibonachi{
         int num1 = 2000;
         int num2 = 0;
 
+        if (index == 0){
+            return num0;
+        }
+        if (index == 1){
+            return num1;
+        }
 
         System.out.print(num0 + " " + num1 + " ");
         for(int i = 3; i <= index; i++){

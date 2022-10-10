@@ -40,6 +40,7 @@ public class MainFragment extends Fragment implements View.OnClickListener{
             answerD,
             positive_button,
             negative_button,
+            money_button,
             fifty_help_button;
     TextView questionText, questionNum;
 
@@ -70,7 +71,9 @@ public class MainFragment extends Fragment implements View.OnClickListener{
         answerC.setOnClickListener(this);
         answerD = view.findViewById(R.id.answer_v_button);
         answerD.setOnClickListener(this);
+        money_button = view.findViewById(R.id.prise_button);
         loadQuestion(question_id);
+
 
         return view;
     }
@@ -89,6 +92,7 @@ public class MainFragment extends Fragment implements View.OnClickListener{
         answers.add(question.getWrongAnswers().get(1));
         answers.add(question.getWrongAnswers().get(2));
         answers.add(question.getRightAnswer());
+        money_button.setText(String.valueOf(Fibonachi.getFibonachi(index)));
 
         int randIndex = new Random().nextInt(4);
         answerA.setText(answers.get(randIndex));
