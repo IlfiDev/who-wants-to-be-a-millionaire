@@ -16,7 +16,7 @@ public class Fibonachi{
         }
 
         System.out.print(num0 + " " + num1 + " ");
-        for(int i = 3; i <= index; i++){
+        for(int i = 3; i <= index+1; i++){
             num2 = num0 + num1;
 
 
