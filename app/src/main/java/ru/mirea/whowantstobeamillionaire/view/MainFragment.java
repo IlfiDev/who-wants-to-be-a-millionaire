@@ -227,7 +227,52 @@ public class MainFragment extends Fragment implements View.OnClickListener{
     public boolean answerIsCorrect(String answer) {
         return questions.get(question_id).getRightAnswer().equals(answer);
     }
-    int getPercentOfDifficulty(int difficulty){
-        return 100 - difficulty/15 * 100;
+
+    int getPercentOfDifficulty(double difficulty){
+        return (int) (100 - (difficulty/15.0) * 100);
+    }
+
+    public ArrayList<Integer> getAudienceScore(Question quest, int seed){
+        Random rand = new Random();
+        int difficulty = quest.getDifficulty();
+        ArrayList<Integer> answerDistribution = new ArrayList<>();
+        rand.setSeed(seed);
+        int aCount = 0;
+        int bCount = 0;
+        int cCount = 0;
+        int dCount = 0;
+        for(int i = 0; i < 100; i++){
+            double randomer = rand.nextDouble();
+            int difficultyPecentage = getPercentOfDifficulty(difficulty);
+            if(difficultyPecentage < 25){
+                difficultyPecentage = 25;
+            }
+            difficultyPecentage += new Random(seed).nextInt(15 + 15) - 15;
+            if(randomer * 100 < difficultyPecentage){
+                aCount += 1;
+
+            }else{
+                int randomNum = new Random(seed).nextInt(3);
+                switch (randomNum){
+                    case 0:
+                        bCount += 1;
+                        break;
+                    case 1:
+                        cCount += 1;
+                        break;
+                    case 2:
+                        dCount += 1;
+                        break;
+
+                }
+            }
+
+
+        }
+        answerDistribution.add(aCount);
+        answerDistribution.add(bCount);
+        answerDistribution.add(cCount);
+        answerDistribution.add(dCount);
+        return answerDistribution;
     }
 }
