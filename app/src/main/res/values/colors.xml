@@ -15,5 +15,5 @@
     <color name="inactive_button">#B8B8B8</color>
 
     <color name="bg">#F9F8FF</color>
-
+    <color name="dialog_bg">#FAE6FF</color>
 </resources>
