@@ -223,4 +223,7 @@ public class MainFragment extends Fragment implements View.OnClickListener{
     public boolean answerIsCorrect(String answer) {
         return questions.get(question_id).getRightAnswer().equals(answer);
     }
+    int getPercentOfDifficulty(int difficulty){
+        return 100 - difficulty/15 * 100;
+    }
 }
