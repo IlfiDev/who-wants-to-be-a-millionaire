@@ -35,4 +35,16 @@ public class MainFragmentTest {
         assertEquals("Махаон", mainFragment.fiftyFiftyHelp(5, question));
     }
 
+    @Test
+    public void getAudienceScore(){
+        MainFragment mainFragment = new MainFragment();
+        Question question = new Question("Как называют беспилотный летательный аппарат?", "Дрон", new ArrayList<String>(Arrays.asList("Джон", "Махаон", "Десиптикон")), 1);
+        ArrayList<Double> expectedDistribution = new ArrayList<>();
+        expectedDistribution.add(0.1);
+        expectedDistribution.add(0.5);
+        expectedDistribution.add(0.2);
+        expectedDistribution.add(0.2);
+        ArrayList<Double> realDistribution = mainFragment.getAudienceScore(question, 1);
+        Assert.assertEquals(expectedDistribution, realDistribution);
+    }
 }
