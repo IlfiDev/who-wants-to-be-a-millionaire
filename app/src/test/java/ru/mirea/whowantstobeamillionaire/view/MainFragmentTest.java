@@ -7,7 +7,6 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Random;
 
 public class MainFragmentTest {
 
@@ -35,26 +34,26 @@ public class MainFragmentTest {
         assertEquals("Махаон", mainFragment.fiftyFiftyHelp(5, question));
     }
 
-//    @Test
-//    public void getAudienceScore(){
-//        MainFragment mainFragment = new MainFragment();
-//        Question question = new Question("Как называют беспилотный летательный аппарат?", "Дрон", new ArrayList<String>(Arrays.asList("Джон", "Махаон", "Десиптикон")), 1);
-//        ArrayList<Double> expectedDistribution = new ArrayList<>();
-//        expectedDistribution.add(0.1);
-//        expectedDistribution.add(0.5);
-//        expectedDistribution.add(0.2);
-//        expectedDistribution.add(0.2);
-//        ArrayList<Double> realDistribution = mainFragment.getAudienceScore(question, 1);
-//        Assert.assertEquals(expectedDistribution, realDistribution);
-//    }
+    @Test
+    public void getAudienceScore(){
+        MainFragment mainFragment = new MainFragment();
+        Question question = new Question("Как называют беспилотный летательный аппарат?", "Дрон", new ArrayList<String>(Arrays.asList("Джон", "Махаон", "Десиптикон")), 10);
+        ArrayList<Integer> expectedDistribution = new ArrayList<>();
+        expectedDistribution.add(34);
+        expectedDistribution.add(50);
+        expectedDistribution.add(20);
+        expectedDistribution.add(20);
+        ArrayList<Integer> realDistribution = mainFragment.getAudienceScore(question, 1);
+        Assert.assertEquals(expectedDistribution.get(0), realDistribution.get(0));
+    }
 
     @Test
 
     public void getPercentOfDifficulty() {
-        Question question = new Question("Как называют беспилотный летательный аппарат?", "Дрон", new ArrayList<String>(Arrays.asList("Джон", "Махаон", "Десиптикон")), 15);
+        Question question = new Question("Как называют беспилотный летательный аппарат?", "Дрон", new ArrayList<String>(Arrays.asList("Джон", "Махаон", "Десиптикон")), 1);
 
         MainFragment mainFragment = new MainFragment();
-        int expectedPercentage = 66;
+        int expectedPercentage = 93;
         int realPercentage = mainFragment.getPercentOfDifficulty(question.getDifficulty());
         Assert.assertEquals(expectedPercentage, realPercentage);
     }
