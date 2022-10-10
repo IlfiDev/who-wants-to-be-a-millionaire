@@ -47,4 +47,14 @@ public class MainFragmentTest {
         ArrayList<Double> realDistribution = mainFragment.getAudienceScore(question, 1);
         Assert.assertEquals(expectedDistribution, realDistribution);
     }
+
+    @Test
+    public void getPercentageOfNumber(){
+        Question question = new Question("Как называют беспилотный летательный аппарат?", "Дрон", new ArrayList<String>(Arrays.asList("Джон", "Махаон", "Десиптикон")), 15);
+
+        MainFragment mainFragment = new MainFragment();
+        int expectedPercentage = 66;
+        int realPercentage = mainFragment.getPercentageOfDifficulty(question);
+        Assert.assertEquals(expectedPercentage, realPercentage);
+    }
 }
