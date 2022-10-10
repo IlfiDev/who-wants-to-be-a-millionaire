@@ -131,6 +131,6 @@ public class MainFragment extends Fragment {
 
 
     public boolean answerIsCorrect(String answer) {
-        return false;
+        return questions.get(question_id).getRightAnswer().equals(answer);
     }
 }
