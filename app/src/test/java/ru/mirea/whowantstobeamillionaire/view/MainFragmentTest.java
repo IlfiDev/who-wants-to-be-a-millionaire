@@ -28,6 +28,7 @@ public class MainFragmentTest {
     @Test
     public void fiftyFiftyHelp() {
         MainFragment mainFragment = new MainFragment();
+
         Question question = new Question("Как называют беспилотный летательный аппарат?", "Дрон", new ArrayList<String>(Arrays.asList("Джон", "Махаон", "Десиптикон")), 1);
         ArrayList<String> list = question.getWrongAnswers();
 
