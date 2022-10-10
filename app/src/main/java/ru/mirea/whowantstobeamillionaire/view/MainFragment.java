@@ -41,7 +41,8 @@ public class MainFragment extends Fragment implements View.OnClickListener{
             positive_button,
             negative_button,
             money_button,
-            fifty_help_button;
+            fifty_help_button,
+            audienceButton;
     TextView questionText, questionNum;
 
     public NotificationManager notificationManager;
@@ -58,7 +59,6 @@ public class MainFragment extends Fragment implements View.OnClickListener{
         View view = inflater.inflate(R.layout.fragment_main, container, false);
 
         fifty_help_button = view.findViewById(R.id.fifty_help_button);
-
         helpButton();
 
         questionText = view.findViewById(R.id.question_text);
@@ -72,7 +72,9 @@ public class MainFragment extends Fragment implements View.OnClickListener{
         answerD = view.findViewById(R.id.answer_v_button);
         answerD.setOnClickListener(this);
         money_button = view.findViewById(R.id.prise_button);
+        audienceButton = view.findViewById(R.id.zal_help_button);
         loadQuestion(question_id);
+        audienceHelp();
 
 
         return view;
@@ -147,7 +149,59 @@ public class MainFragment extends Fragment implements View.OnClickListener{
             failDialog();
         }
     }
+    public void audienceHelp(){
+        audienceButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                audienceButton.setBackgroundResource(R.color.inactive_button);
+                audienceButton.setVisibility(View.INVISIBLE);
+                MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(getContext());
+                builder.setBackground(getResources().getDrawable(R.drawable.dialog_shape));
+                ConstraintLayout cl = (ConstraintLayout) getLayoutInflater().inflate(R.layout.audience_layout, null);
+                TextView text = cl.findViewById(R.id.audience_dialog_description);
+                ArrayList<Integer> results = getAudienceScore(questions.get(question_id), (int) System.currentTimeMillis());
+                String rightAnswer = questions.get(question_id).getRightAnswer();
+                String a, b, c, d;
+                int wrongCounter = 1;
+                if ( rightAnswer == answerA.getText()){
+                    a = "А:" + results.get(0);
+                }else{
+                    a = "А:" + results.get(wrongCounter);
+                    wrongCounter++;
+                }
+                if ( rightAnswer == answerB.getText()){
+                    b = "Б:" + results.get(0);
+                }else{
+                    b = "Б:" + results.get(wrongCounter);
+                    wrongCounter++;
+                }
+                if ( rightAnswer == answerC.getText()){
+                    c = "В:" + results.get(0);
+                }else{
+                    c = "В:" + results.get(wrongCounter);
+                    wrongCounter++;
+                }
+                if ( rightAnswer == answerD.getText()){
+                    d = "Г:" + results.get(0);
+                }else{
+                    d = "Г:" + results.get(wrongCounter);
 
+                }
+                text.setText(a + " " + b + " " + c +" " + d);
+
+                builder.setCancelable(false);
+                builder.setView(cl);
+                AlertDialog dialog = builder.show();
+                Button but = (Button) cl.getViewById(R.id.audience_positive_button);
+                but.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+            }
+        });
+    }
     public void helpButton(){
         fifty_help_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -252,7 +306,7 @@ public class MainFragment extends Fragment implements View.OnClickListener{
                 aCount += 1;
 
             }else{
-                int randomNum = new Random(seed).nextInt(3);
+                int randomNum = new Random().nextInt(3);
                 switch (randomNum){
                     case 0:
                         bCount += 1;
