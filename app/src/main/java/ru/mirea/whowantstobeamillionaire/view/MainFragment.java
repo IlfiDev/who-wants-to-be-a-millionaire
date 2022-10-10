@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -156,5 +157,9 @@ public class MainFragment extends Fragment implements View.OnClickListener{
 
     public boolean answerIsCorrect(String answer) {
         return questions.get(question_id).getRightAnswer().equals(answer);
+    }
+
+    public ArrayList<Double> getAudienceScore(Question quest, int seed){
+        return null;
     }
 }
