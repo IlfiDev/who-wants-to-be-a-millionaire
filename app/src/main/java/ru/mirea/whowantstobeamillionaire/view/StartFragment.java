@@ -1,5 +1,8 @@
 package ru.mirea.whowantstobeamillionaire.view;
 
+import android.app.appsearch.GetSchemaResponse;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -23,9 +26,13 @@ public class StartFragment extends Fragment {
     TextView textTitle;
     TextView textDescription;
 
+    private SharedPreferences pref;
+    private final String save_key = "save_key";
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        init();
 
         return inflater.inflate(R.layout.fragment_start, container, false);
     }
@@ -38,22 +45,32 @@ public class StartFragment extends Fragment {
         next_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switch (screen){
-                    case 0:
-                        setText(R.string.rule_title, R.string.rule_description);
-                        break;
-                    case 1:
-                        setText(R.string.bonus_title, R.string.bonus_description);
-                        break;
-                    case 2:
-                        Navigation.findNavController(StartFragment.this.getView()).navigate(R.id.action_startFragment_to_mainFragment);
-                        break;
+
+                // Судя по всему, pref по умолчанию true, поэтому ведется обратная проверка
+                if (pref.getBoolean(save_key, false)) {
+                    Navigation.findNavController(StartFragment.this.getView()).navigate(R.id.action_startFragment_to_mainFragment);
+                }
+                else {
+                    switch (screen){
+                        case 0:
+                            setText(R.string.rule_title, R.string.rule_description);
+                            break;
+                        case 1:
+                            setText(R.string.bonus_title, R.string.bonus_description);
+                            break;
+                        case 2:
+                            pref.edit().putBoolean(save_key, true).apply();
+
+                            next_button.setText("Удачи!");
+                            Navigation.findNavController(StartFragment.this.getView()).navigate(R.id.action_startFragment_to_mainFragment);
+                            break;
+                    }
                 }
             }
         });
     }
 
-    public void setText (int title, int desk) {
+    private void setText (int title, int desk) {
         textTitle = (TextView) getView().findViewById(R.id.hello_text);
         textTitle.setText(title);
 
@@ -64,8 +81,21 @@ public class StartFragment extends Fragment {
         textDescription.setGravity(Gravity.LEFT | Gravity.CENTER_VERTICAL);
         textDescription.setText(desk);
 
-        next_button.setText("Удачи!");
-
         screen++;
+    }
+
+    public void init(){
+        pref = getContext().getSharedPreferences("Screen", Context.MODE_PRIVATE);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
     }
 }

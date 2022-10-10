@@ -29,4 +29,8 @@
     <string name="answer_b">Ответ Б:</string>
     <string name="answer_c">Ответ В:</string>
     <string name="answer_d">Ответ Г:</string>
+
+    <string name="question_number">Вопрос 1:</string>
+    <string name="question">Какой год сотворения Иисуса соответствует иудейским предсказаниям?</string>
+
 </resources>
