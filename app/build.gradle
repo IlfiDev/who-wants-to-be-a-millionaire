@@ -30,6 +30,8 @@ android {
 
 dependencies {
 
+    implementation 'org.junit.jupiter:junit-jupiter'
+    implementation 'org.testng:testng:6.9.6'
     def nav_version = "2.5.2"
 
     // Java language implementation

@@ -13,7 +13,7 @@ import java.util.Arrays;
 import ru.mirea.whowantstobeamillionaire.R;
 
 public class MainActivity extends AppCompatActivity {
-
+    public ArrayList<Question> question;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         NavController navHostController;
         navHostController = Navigation.findNavController(this, R.id.nav_host);
 
-        ArrayList<Question> question = new ArrayList<>();
+        question = new ArrayList<>();
         question.add(new Question("Как называют беспилотный летательный аппарат?", "Дрон", new ArrayList<String>(Arrays.asList("Дрон", "Махаон", "Десиптикон")), 1));
         question.add(new Question("В какой игре не используют мяч?", "Керлинг", new ArrayList<String>(Arrays.asList("Волейбол", "Футболл", "Теннис")), 2));
         question.add(new Question("Что в сказках было семимильным?", "Ковёр", new ArrayList<String>(Arrays.asList("Одежда", "Сапоги", "Мотоцикл")), 3));
