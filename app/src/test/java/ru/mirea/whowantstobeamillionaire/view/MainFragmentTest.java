@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 
 public class MainFragmentTest {
 
@@ -22,6 +23,16 @@ public class MainFragmentTest {
         assertFalse("Test not pass: 3", mainFragment.answerIsCorrect(question.getWrongAnswers().get(1)));
         assertFalse("Test not pass: 4", mainFragment.answerIsCorrect(question.getWrongAnswers().get(2)));
 
+    }
+
+    @Test
+    public void fiftyFiftyHelp() {
+        MainFragment mainFragment = new MainFragment();
+
+        Question question = new Question("Как называют беспилотный летательный аппарат?", "Дрон", new ArrayList<String>(Arrays.asList("Джон", "Махаон", "Десиптикон")), 1);
+        ArrayList<String> list = question.getWrongAnswers();
+
+        assertEquals("Махаон", mainFragment.fiftyFiftyHelp(5, question));
     }
 
 }
