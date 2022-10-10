@@ -49,12 +49,20 @@ public class MainFragmentTest {
     }
 
     @Test
-    public void getPercentageOfNumber(){
+
+    public void getPercentOfDifficulty() {
         Question question = new Question("Как называют беспилотный летательный аппарат?", "Дрон", new ArrayList<String>(Arrays.asList("Джон", "Махаон", "Десиптикон")), 15);
 
         MainFragment mainFragment = new MainFragment();
         int expectedPercentage = 66;
-        int realPercentage = mainFragment.getPercentageOfDifficulty(question);
+        int realPercentage = mainFragment.getPercentOfDifficulty(question.getDifficulty());
         Assert.assertEquals(expectedPercentage, realPercentage);
+    }
+    public void Fibonachi(){
+        int expectednum = 8000;
+        int realnum = Fibonachi.getFibonachi(5);
+        assertEquals(expectednum,realnum);
+
+
     }
 }
