@@ -25,7 +25,6 @@
         style="@style/Widget.Material3.Button.IconButton"
         android:backgroundTint="@color/primary"
 
-
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginStart="112dp"
@@ -130,7 +129,6 @@
 
     <Button
         android:id="@+id/answer_a_button"
-        android:background="@drawable/answer_card_shape"
 
         android:layout_width="160dp"
         android:layout_height="60dp"
@@ -138,19 +136,20 @@
         android:layout_marginTop="24dp"
 
         android:fontFamily="@font/montserratalternates_semibold"
-        android:text="@string/answer_a"
-        android:textSize="12dp"
         android:gravity="center"
-
         android:insetTop="0dp"
         android:insetBottom="0dp"
 
+        android:text="@string/answer_a"
+        android:textSize="12dp"
+
+        app:cornerRadius="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/question_field" />
 
     <Button
         android:id="@+id/answer_b_button"
-        android:background="@drawable/answer_card_shape"
+        app:cornerRadius="12dp"
 
         android:layout_width="160dp"
         android:layout_height="60dp"
@@ -170,7 +169,7 @@
 
     <Button
         android:id="@+id/answer_v_button"
-        android:background="@drawable/answer_card_shape"
+        app:cornerRadius="12dp"
 
         android:layout_width="160dp"
         android:layout_height="60dp"
@@ -190,7 +189,7 @@
 
     <Button
         android:id="@+id/answer_g_button2"
-        android:background="@drawable/answer_card_shape"
+        app:cornerRadius="12dp"
 
         android:layout_width="160dp"
         android:layout_height="60dp"

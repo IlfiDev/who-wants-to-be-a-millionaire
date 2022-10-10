@@ -14,7 +14,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
         android:fontFamily="@font/montserratalternates_semibold"
-        android:text="@string/start_title"
+        android:text="@string/title_dialog"
         android:textColor="@color/black"
         android:textSize="24dp"
 
@@ -30,7 +30,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
         android:fontFamily="@font/montserratalternates_semibold"
-        android:text="@string/start_description"
+        android:text="@string/description_dialog"
 
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"

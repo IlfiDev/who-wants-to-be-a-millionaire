@@ -34,6 +34,9 @@
     <string name="question">Какой год сотворения Иисуса соответствует иудейским предсказаниям?</string>
 
     <string name="positive_button">Обидно</string>
-    <string name="negative_button">Ладно</string>
+    <string name="negative_button">Заново</string>
+
+    <string name="title_dialog">Вы проиграли</string>
+    <string name="description_dialog">Нам жаль, но вы ничего не получите.</string>
 
 </resources>

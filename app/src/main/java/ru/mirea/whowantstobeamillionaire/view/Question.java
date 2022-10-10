@@ -20,7 +20,7 @@ public class Question {
         return question;
     }
 
-    public List<String> getWrongAnswers() {
+    public ArrayList<String> getWrongAnswers() {
         return wrongAnswers;
     }
 
