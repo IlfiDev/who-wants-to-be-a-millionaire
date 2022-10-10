@@ -32,6 +32,7 @@ dependencies {
 
     implementation 'org.junit.jupiter:junit-jupiter'
     implementation 'org.testng:testng:6.9.6'
+    implementation 'junit:junit:4.12'
     def nav_version = "2.5.2"
 
     // Java language implementation
