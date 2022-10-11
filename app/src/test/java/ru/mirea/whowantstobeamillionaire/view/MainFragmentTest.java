@@ -48,7 +48,6 @@ public class MainFragmentTest {
     }
 
     @Test
-
     public void getPercentOfDifficulty() {
         Question question = new Question("Как называют беспилотный летательный аппарат?", "Дрон", new ArrayList<String>(Arrays.asList("Джон", "Махаон", "Десиптикон")), 1);
 
@@ -60,7 +59,7 @@ public class MainFragmentTest {
 
     @Test
     public void Fibonachi(){
-        int expectednum = 8000;
+        int expectednum = 13000;
         int realnum = Fibonachi.getFibonachi(5);
         assertEquals(expectednum,realnum);
 

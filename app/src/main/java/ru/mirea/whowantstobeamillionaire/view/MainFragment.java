@@ -237,10 +237,6 @@ public class MainFragment extends Fragment implements View.OnClickListener{
 
         ArrayList<String> list = question.getWrongAnswers();
 
-        for (int i = 0; i < list.size(); i++){
-            Log.i("Gig", list.get(i));
-        }
-
         String answer = list.get(rand.nextInt(2));
         return answer;
     }
